@@ -1,0 +1,128 @@
+
+<style>
+    .rotateDiv{
+      perspective: 800px;	
+    }
+    .rotate {
+        transform: rotateY(0deg);
+      animation: rotateAnimation 6s linear infinite;
+  }
+  
+  @keyframes rotateAnimation {
+      0% {transform: rotateY(0deg) rotateZ(0deg);}
+      50% {transform: rotateY(180deg) rotateZ(3deg);}
+      100% {transform: rotateY(360deg) rotateZ(0deg);}
+  }
+  </style>
+  <!-- TRY your favorite design at HOME -->
+  <section class="py-8 md:py-12 xxl:py-28" style="background:linear-gradient(to bottom, #fef9ef40, #f9e7c445, #f9e7c4)">
+    <div class="container">
+      <div class="grid lg:grid-cols-3 gap-y-5 gap-x-3 md:gap-5 text-center items-center justify-items-center">
+        <div>
+          <img class="inline" src="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/Ringicons.svg?v=1717836428" alt="ring" height="" width="" />
+          <h2 class="font-lato font-normal text-lg xl:text-xl text-black uppercase leading-normal mt-3" data-aos="fade-up"
+            data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800">
+             {{ section.settings.title1 }}
+          </h2>
+          <p class="font-lato text-sm md:text-md font-normal leading-6 md:leading-9 tracking-[1.8px] capitalize md:mt-[20px] mx-auto"
+          data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800"
+          data-aos-offSet="0">
+            {{ section.settings.subtitle1 }}
+          </p>
+          <a href="{{ section.settings.buttonlink1 }}"
+            class="font-lato text-xsm md:text-md font-normal tracking-[1.8px] text-white hover:text-black px-6 xl:px-8 py-2 md:py-4 
+            bg-black uppercase hover:bg-transparent border-black inline-block border-2 border-solid duration-300 rounded-md mt-6 md:mt-[20px]">{{ section.settings.buttontext1 }}</a>
+        </div>
+        <div>
+          <img class="" src="{{ section.settings.image | img_url: 'master'}}" alt="Diamond Ring" width="" height=""  />
+        </div>
+        <div>
+          <img class="inline" src="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/Diamondicon.svg?v=1717831758" alt="diamond" height="" width="" />
+          <h2 class="font-lato font-normal text-lg xl:text-xl text-black uppercase leading-normal mt-3" data-aos="fade-up"
+            data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800">
+             {{ section.settings.title2 }}
+          </h2>
+          <p class="font-lato text-sm md:text-md font-normal leading-6 md:leading-9 tracking-[1.8px] capitalize md:mt-[20px] mx-auto"
+          data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800"
+          data-aos-offSet="0">
+            {{ section.settings.subtitle2 }}
+          </p>
+          <a href="{{ section.settings.buttonlink2 }}"
+            class="font-lato text-xsm md:text-md font-normal tracking-[1.8px] text-white hover:text-black px-6 xl:px-8 py-2 md:py-4 
+            bg-black uppercase hover:bg-transparent border-black inline-block border-2 border-solid duration-300 rounded-md mt-6 md:mt-[20px]">{{ section.settings.buttontext2 }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- *****end****** -->
+    {% schema %}
+{
+"name": "Text Image Text Section",
+ "settings": [
+ {
+
+    "type": "textarea",
+    "id": "title1",
+    "label": "Heading1"
+  },
+    {
+
+    "type": "textarea",
+    "id": "subtitle1",
+    "label": "Sub Heading1"
+  },
+   {
+
+    "type": "textarea",
+    "id": "buttontext1",
+    "label": "Button Text1"
+  },
+      {
+
+    "type": "url",
+    "id": "buttonlink1",
+    "label": "Button Link1"
+  },
+
+   {
+
+    "type": "image_picker",
+    "id": "image",
+    "label": "Center Image"
+  },
+
+   {
+
+    "type": "textarea",
+    "id": "title2",
+    "label": "Heading2"
+  },
+    {
+
+    "type": "textarea",
+    "id": "subtitle2",
+    "label": "Sub Heading2"
+  },
+   {
+
+    "type": "textarea",
+    "id": "buttontext2",
+    "label": "Button Text2"
+  },
+      {
+
+    "type": "url",
+    "id": "buttonlink2",
+    "label": "Button Link2"
+  }
+
+],
+  
+ "presets": [
+  {
+    "name": "Text Image Text Section"
+  }
+]
+}
+{% endschema %}

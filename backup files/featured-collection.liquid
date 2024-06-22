@@ -1,0 +1,139 @@
+<!-- YOU DREAM IT...WE MAKE IT -->
+<section class="md:pt-[40px]">
+  <div class="container pt-10 lg:pt-[40px] xxl:pt-[100px]">
+    <h2
+      class="font-lato font-normal text-lg md:text-xl text-black md:text-center"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-back"
+      data-aos-delay="0"
+      data-aos-duration="800"
+      data-aos-offSet="0"
+    >
+      {{ section.settings.title }}
+    </h2>
+    <p
+      class="font-lato text-sm md:text-md font-normal leading-6 md:leading-9 tracking-[1.8px] capitalize md:text-center mt-5 md:mt-10"
+      data-aos="fade-up"
+      data-aos-easing="ease-in-back"
+      data-aos-delay="0"
+      data-aos-duration="800"
+      data-aos-offSet="0"
+    >
+      {{ section.settings.subtitle }}
+    </p>
+
+    <!-- products -->
+    <div
+      class="md:flex justify-between items-start mt-10 md:mt-24 pb-2 md:pb-[46px] border-b-2 border-black"
+    >
+      <h3
+        class="font-lato font-normal text-lg md:text-xl uppercase leading-normal"
+        data-aos="fade-right"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="0"
+        data-aos-duration="800"
+        data-aos-offset="0"
+      >
+        {{ section.settings.title2 }}
+      </h3>
+
+      <p
+        class="font-lato font-normal text-sm md:text-[16px] xl:text-md text-black leading-6 md:leading-9 tracking-[1.8px] capitalize md:w-[415px] md:text-end xl:text-start"
+        data-aos="fade-left"
+        data-aos-easing="ease-in-back"
+        data-aos-delay="0"
+        data-aos-duration="800"
+        data-aos-offset="0"
+      >
+        {{ section.settings.subtitle2 }}
+      </p>
+    </div>
+    <div class="overflow-x-auto overflow-y-hidden">
+      <div class="grid grid-flow-col auto-cols-max gap-4 gap-y-4 md:gap-y-10 pt-10 lg:pt-[44px] xxl:pt-14 items-center max-md:w-[768px] pb-6 xl:pb-5">
+        {% for block in section.blocks %}
+          <div
+            class="last:lg:hidden"
+            data-aos="{% if forloop.index == 1 %}fade-right{% endif %}{% unless forloop.index == 1 or forloop.last%}fade-up{% endunless %}{% if forloop.last %}fade-left{% endif %}"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="0"
+            data-aos-duration="800"
+          >
+            <a href="{{ block.settings.link }}" class="block">
+              <div class="h-[350px] md:h-[400px] w-[320px] md:w-[420px] overflow-hidden">
+                <img
+                  src="{{ block.settings.image | img_url: 'master'}}"
+                  alt="a girl wants to see ear rings"
+                  class="w-full h-full object-cover object-center group-hover:scale-[1.1] duration-300 rounded-xl"
+                  height=""
+                  width=""
+                >
+              </div>
+              <h4
+                class="font-lato font-normal text-sm md:text-md lg:text-xl text-black mt-3 xl:mt-8 text-center capitalize"
+              >
+                {{ block.settings.title }}
+              </h4>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- *****end****** -->
+
+{% schema %}
+{
+  "name": "Collection Section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sub Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "title2",
+      "label": "Heading 2"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle2",
+      "label": "Sub Heading 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Section"
+    }
+  ]
+}
+{% endschema %}

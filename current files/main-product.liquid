@@ -1,0 +1,946 @@
+<div itemscope itemtype="http://schema.org/Product">
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% comment %}
+    Get first variant, or deep linked one
+  {% endcomment %}
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  {% assign heade = no %}
+  {% for item in cart.items %}
+    {% for p in item.properties %}
+      {% if p.first contains 'type' %}
+        {% assign heade = 'type:' %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if collection.handle == 'engagement-rings' or heade == 'type:' %}
+    <section class="pt-10 zoom-filter-tiny" id="product-manage">
+      <div class="lg:max-w-[1530px] px-8 md:max-lg:px-4 larger:px-3 mx-auto zoom-filter-tiny-inner">
+        <div class="grid grid-cols-3 items-center justify-between">
+          <div
+            class="pr-10 "
+            data-aos="fade-right"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="200"
+            data-aos-duration="1500"
+          >
+            <div
+              class="
+                bg-gray-100 px-4 md:px-5 lg:px-2 larger:px-4 py-4 flex items-center justify-between
+                relative fg zoom-filter-tiny-bg-gray
+              "
+            >
+              <div class="iphone-h flex items-end gap-3">
+                <p class="font-inter font-bold text-xxl md:text-rare inline-block leading-none">1</p>
+                <div>
+                  <p class="font-lato text-lg font-normal leading-6 md:leading-7 tracking-[1.8px] capitalize">
+                    Choose a
+                  </p>
+                  <a
+                    class="font-lato text-xl font-extrabold leading-6 md:leading-7 tracking-[1.8px] capitalize mt-2 inline-block"
+                    href="/collections/engagement-rings"
+                  >
+                    SETTING</a
+                  >
+                </div>
+              </div>
+
+              <div class="border border-black p-2 xxl:p-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  class="iphone-h"
+                  style="fill: #000; margin: auto"
+                  viewBox="0 0 15.94 12.42"
+                >
+                  <path d="M13.46,0h-11L0,3.16l8,9.26,8-9.26L13.46,0ZM8,9.55,2.62,3.38,3.77,1.76h8.4l1.15,1.62Z">
+                  </path>
+                </svg>
+                <!-- iphone icon -->
+                <a class="hidden iphone-s" href="/collections/engagement-rings">
+                  <img src="{{ 'setting_f.png' | file_url }}" alt="" width="" height="">
+                </a>
+              </div>
+
+              <div
+                class="absolute right-[-30px] top-0 bottom-0 bg-gray-100 w-[30px]"
+                style="clip-path: polygon(0% 0%, 110% 50%, 0% 100%)"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="pr-10 ma x-lg:mt-2 "
+            data-aos="fade-right"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="100"
+            data-aos-duration="1500"
+          >
+            <div
+              class="
+                bg-gray-100 px-4 md:px-5 lg:px-2 larger:px-4 py-4 flex items-center justify-between
+                relative zoom-filter-tiny-bg-gray
+              "
+            >
+              <div class="iphone-h flex items-end gap-3">
+                <p class="font-inter font-bold text-xxl md:text-rare inline-block leading-none">2</p>
+                <div>
+                  <p class="font-lato text-lg font-normal leading-6 md:leading-7 tracking-[1.8px] capitalize">
+                    Choose a
+                  </p>
+                  <a
+                    class="font-lato text-xl font-extrabold leading-6 md:leading-7 tracking-[1.8px] capitalize mt-2 inline-block"
+                    href="javascript:;"
+                  >
+                    DIAMOND</a
+                  >
+                </div>
+              </div>
+
+              <div class="border border-black p-2 xxl:p-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  class="iphone-h"
+                  style="fill: #000; margin: auto"
+                  viewBox="0 0 15.94 12.42"
+                >
+                  <path d="M13.46,0h-11L0,3.16l8,9.26,8-9.26L13.46,0ZM8,9.55,2.62,3.38,3.77,1.76h8.4l1.15,1.62Z">
+                  </path>
+                </svg>
+                <a class="hidden iphone-s" href="javascript:;">
+                  <img src="{{ 'diamond-ring_4.png' | file_url }}" alt="" width="" height="">
+                </a>
+              </div>
+
+              <div
+                class="absolute right-[-30px] top-0 bottom-0 bg-gray-100 w-[30px]"
+                style="clip-path: polygon(0% 0%, 110% 50%, 0% 100%)"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="pr-10 ma x-lg:mt-2 "
+            data-aos="fade-right"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="0"
+            data-aos-duration="1500"
+          >
+            <div
+              class="
+                bg-gray-100 px-4 md:px-5 lg:px-2 larger:px-4 py-4 flex items-center justify-between
+                relative zoom-filter-tiny-bg-gray
+              "
+            >
+              <div class="iphone-h flex items-end gap-3">
+                <p class="font-inter font-bold text-xxl md:text-rare inline-block leading-none">3</p>
+                <div class="opacity-50">
+                  <p class="font-lato text-lg font-normal leading-6 md:leading-7 tracking-[1.8px] capitalize">
+                    complete
+                  </p>
+                  <a
+                    href="/cart"
+                    class="font-lato text-xl font-extrabold leading-6 md:leading-7 tracking-[1.8px] capitalize mt-2 inline-block pointer-events-none"
+                  >
+                    RING</a
+                  >
+                </div>
+              </div>
+
+              <div class="border border-black p-2 xxl:p-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  class="iphone-h"
+                  style="fill: #000; margin: auto"
+                  viewBox="0 0 15.94 12.42"
+                >
+                  <path d="M13.46,0h-11L0,3.16l8,9.26,8-9.26L13.46,0ZM8,9.55,2.62,3.38,3.77,1.76h8.4l1.15,1.62Z">
+                  </path>
+                </svg>
+                <!-- iphone icon -->
+                <a href="/cart" class="hidden iphone-s">
+                  <img src="{{ 'diamond_e.png' | file_url }}" alt="" width="" height="">
+                </a>
+              </div>
+
+              <div
+                class="absolute right-[-30px] top-0 bottom-0 bg-gray-100 w-[30px]"
+                style="clip-path: polygon(0% 0%, 110% 50%, 0% 100%)"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section>
+    <div class="max-w-[1326px] mx-auto px-3 single-dsh-pro py-8 md:py-12 we">
+      <div class="block lg:flex justify-between items-end gap-7">
+        <div
+          class="w-full lg:w-1/2"
+          data-aos="fade-up-right"
+          data-aos-delay="0"
+          data-aos-easing="ease-in-back"
+          data-aos-duration="1500"
+        >
+          <div class="product_image">
+            <div class="ProductGallery">
+              <div class="slider-for ">
+                {% for image in product.images %}
+                  <div class="item">
+                    <a href="{{ image.src | img_url: 'master' }}" id="zoom1" data-zoom-id="zoom1" class="MagicZoomPlus">
+                      <img src="{{ image.src | img_url: 'master' }}" class="img-fluid" alt="" height="" width="">
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="ProductGallerynav">
+              <div class="slider-nav df">
+                {% for image in product.images %}
+                  <div class="item df">
+                    <img
+                      src="{{ image.src | img_url: 'master' }}"
+                      class="img-fluid cursor-pointer border-2 border-gray-200 hover:border-black max-w-[120px] max-h-[120px]"
+                      alt=""
+                      height=""
+                      width=""
+                    >
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 mt-10 lg:mt-0 lookup-metal-colour-sizes">
+          <h2
+            class="font-lato font-normal text-lg md:text-xl leading-9 text-black uppercase"
+            itemprop="name"
+          >
+            {{ product.title }}
+          </h2>
+          <p
+            class="
+              font-lato text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px]
+              capitalize mt-2
+            "
+          >
+            {{ product.metafields.custom.short_description }}
+          </p>
+
+          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+            <link
+              itemprop="availability"
+              href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"
+            >
+
+            <form
+              action="/cart/add"
+              method="post"
+              enctype="multipart/form-data"
+              id="AddToCartForm"
+              class="form-vertical"
+            >
+              <span
+                id="ProductPrice"
+                class="
+                  h2 font-lato text-sm md:text-md font-bold leading-6
+                  md:leading-9 tracking-[1.8px] capitalize my-2 underline block
+                "
+                itemprop="price"
+                content="{{ current_variant.price | divided_by: 100.00 }}"
+              >
+                {{ current_variant.price | money }}
+              </span>
+
+              {% if product.compare_at_price_max > product.price %}
+                {{ 'products.product.compare_at' | t }}
+                {{ current_variant.compare_at_price | money }}
+              {% endif %}
+              {% comment %}
+                Add product variants as a dropdown.
+                  - By default, each variant (or combination of variants) will display as its own <option>
+                  - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+                You can leverage jQuery to add a callback on page load and each time the select element changes:
+                  - Include option_selection.js (as seen at the bottom of this file)
+                  - This allows you to use JavaScript anytime the variant dropdown changes
+                  - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+                For more information on products with multiple options, visit:
+                  - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+              {% endcomment %}
+              <select name="id" id="productSelect" class="product-single__variants">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    {% comment %}
+                      Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                    {% endcomment %}
+                    <option
+                      {% if variant == product.selected_or_first_available_variant %}
+                        selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}"
+                    >
+                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                    </option>
+
+                  {% else %}
+                    <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+              {% if product.available and product.variants.size > 1 %}
+                {% render 'swatch' for product.options as swatch %}
+              {% endif %}
+              {% assign show = false %}
+              {% for tag in product.tags %}
+                {% if tag == 'Men' or tag == 'Women' %}
+                  {% assign show = true %}
+                {% endif %}
+              {% endfor %}
+              <div class="grid grid-cols-2 gap-4">
+                {% if show %}
+                  <div>
+                    <label
+                      for="sizes"
+                      class="
+                        block text-black font-lato font-bold text-md
+                        tracking-[1.8px] text-sm mb-2 capitalize
+                      "
+                    >
+                      size*
+                    </label>
+                    <select
+                      name="properties[Ring Size]"
+                      id="sizes"
+                      class="
+                        w-full border border-gray-500 mt-2 block focus:border-[#c3602d]
+                        focus:ring-gray-500 focus:ring-0 font-lato font-normal text-sm md:text-md text-gray-700
+                      "
+                    >
+                      <option disabled>Select Size</option>
+                      {% for tag in product.tags %}
+                        {% if tag == 'Men' %}
+                          {% assign initial = 6 %}
+                          {% assign end = 9 %}
+                        {% elsif tag == 'Women' %}
+                          {% assign initial = 3 %}
+                          {% assign end = 12 %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {% for i in (initial..end) %}
+                        {% assign j = i | plus: '0.5' %}
+
+                        <option value="{{ i }}">{{ i }}</option>
+                        <option value="{{ j }}">{{ j }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                {% endif %}
+                {% if collection.handle == 'engagement-rings' %}
+                  <div class="m t-5">
+                    <label
+                      for="countries"
+                      class="
+                        block text-black font-lato font-bold text-md
+                        tracking-[1.8px] text-sm mb-2 capitalize
+                      "
+                    >
+                      Diamond*
+                    </label>
+
+                    <fieldset class="mt-2 flex items-center gap-3">
+                      <input id="natural" class="peer/natural hidden" type="radio" name="status" checked>
+                      <input id="lab" class="peer/lab hidden" type="radio" name="status">
+
+                      <label
+                        for="natural"
+                        class="
+                          border border-black inline-block inline px-6 py-2
+                          font-lato font-normal text-sm md:text-md text-gray-700 cursor-pointer rounded peer-checked/natural:bg-black peer-checked/natural:text-white hover:bg-black hover:text-white duration-300
+                        "
+                        >Natural</label
+                      >
+
+                      <label
+                        for="lab"
+                        class="
+                          border border-black inline-block inline px-6 py-2
+                          font-lato font-normal text-sm md:text-md text-gray-700 cursor-pointer rounded peer-checked/lab:bg-black peer-checked/lab:text-white hover:bg-black hover:text-white duration-300
+                        "
+                        >Lab</label
+                      >
+                    </fieldset>
+                  </div>
+                {% endif %}
+              </div>
+
+              <!-- buttons -->
+              <div class="border-[1px] border-black mt-[12px] pt-1 pl-1 pe-1">
+                <button
+                  type="submit"
+                  name="add"
+                  {% if collection.handle == 'engagement-rings' %}
+                    id="AddToCart2"
+                  {% else %}
+                    id="AddToCart"
+                  {% endif %}
+                  class="
+                    font-lato text-sm w-full md:text-md font-normal tracking-[1.8px] text-white
+                    hover:text-black px-6 md:px-10 py-2 md:py-4 bg-black hover:bg-transparent inline-block
+                    duration-300 max-md:w-full text-center capitalize
+                  "
+                >
+                  <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                </button>
+              </div>
+              <div class="border-[1px] border-black my-5 pt-1 pl-1 pe-1">
+                <a
+                  href="/pages/book-appointment"
+                  class="font-lato text-xsm w-full md:text-md font-normal tracking-[1.8px] text-white hover:text-black px-6 md:px-10 py-2 md:py-4 bg-black hover:bg-transparent inline-block duration-300 max-md:w-full text-center"
+                >
+                  Lets's Book an In-person apointment
+                </a>
+              </div>
+
+              <!-- SHOP PAY BANNER -->
+              <div id="shopPayArea">
+                {% form 'product', product %}
+                  <!-- product price -->
+                  {{ form | payment_terms }}
+                {% endform %}
+              </div>
+              <!-- END SHOP PAY BANNER -->
+
+              <!-- made to order -->
+              <div class="block md:flex text-center md:justify-end mt-2">
+                <!--
+                  <p class="font-lato text-gray-700  font-sm ">
+                    <b class="text-black">Made to Order.</b>Ships by December 9.
+                  </p>
+                -->
+                {% if collection.handle == 'engagement-rings' %}
+                  <p
+                    class="
+                      font-lato w-max m-auto md:m-0 mt-2 md:mt-0 md:w-auto text-gray-500 font-sm border-b border-gray-500 cursor-pointer
+                      hover:text-black duration-300
+                    "
+                  >
+                    <a class="kklao" href="javascript:;">Add Setting Only to Cart</a>
+                  </p>
+                {% endif %}
+              </div>
+
+              {% if collection.handle == 'engagement-rings' %}
+                <input type="hidden" value="engagement-rings" name="properties[type:]">
+              {% endif %}
+            </form>
+          </div>
+
+          <!-- metal & size dropdown -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- *****end****** -->
+  <script src="{{ 'option_selection.js' | asset_url }}" defer="defer"></script>
+  <script>
+     window.addEventListener('DOMContentLoaded', function() {
+       
+    var selectCallback = function(variant, selector) {
+      // BEGIN SWATCHES
+        if (variant) {
+  
+        var form = jQuery('#' + selector.domIdPrefix).closest('form');
+        for (var i = 0, length = variant.options.length; i < length; i++) {
+          var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] + '"]');
+        }
+  
+        var images = [];
+        {% for image in product.images %}
+  
+        {% capture imagea %}image{ { forloop.index } } {% endcapture %}
+  
+        images.push({ url: `{{ image | product_img_url: 'master' }}`, indexa: `{{forloop.index}}`,
+                     alta: `{{product.metafields.global[imagea]}}`, alt: `{{ image.alt }}`,
+                     imagid: `{{ image.id }}`,
+                     srcset: `{%- if image.width >= 165 -%}{{ image | img_url: '165x' }} 165w,{%- endif -%} {%- if image.width >= 360 -%}
+                       {{ image | img_url: '360x' }} 360w,{%- endif -%}{%- if image.width >= 535 -%}{{ image | img_url: '535x' }} 535w,{%- endif -%}{%- if image.width >= 720 -%}
+                         {{ image | img_url: '720x' }} 720w,{%- endif -%}{%- if image.width >= 940 -%}{{ image | img_url: '940x' }} 940w,{%- endif -%}{%- if image.width >= 1070 -%}
+                           {{ image | img_url: '1070x' }} 1070w{%- endif -%}`, width: `{{ image.width }}`, height: `{{ image.height }}`, src: `{{ image | img_url: '533x' }}` });
+        {% endfor %}
+  
+        var thumbnails = $(".ProductGallery");
+        var thumbnails1 = $(".ProductGallerynav");
+        var selected = variant.title;
+  
+        if (selected == 'Default Title') { }
+        else {
+          thumbnails.empty();
+          thumbnails1.empty();
+  
+          var addImage = '';
+          var addImage1 = '';
+  
+          $.each(images, function (i, image) {
+            var alt = images[i].alt;
+            var alta = images[i].alta;
+            var url = images[i].url;
+            var image_id = images[i].imagid;
+            var product_name = "{{product.title}}";
+            var srcset = images[i].srcset
+            var width = images[i].width
+            var height = images[i].height
+   
+            if (alt == selected) {
+              addImage += '<div class="item"><img loading="lazy" src="' + url + '" alt="' + alta + '" class="img-fluid w-full object-contain md:max-lg:h-[560px] lg:h-[450px] mx-auto" srcset="' + srcset +
+                '" width="' + width + '"  height="' + height + '" sizes="(min-width: 1100px) 535px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)" ></div>';
+  
+                
+              addImage1 += '<div class="item"><img loading="lazy"  src="' + url + '" alt="' + alta + 
+                '" class="img-fluid cursor-pointer border-2 border-gray-400 hover:border-gray-700 object-cover object-center w-[20vw] h-[10vh] md:w-[110px] md:h-[110px]" srcset="' + 
+                srcset + '" width="' + width + '"  height="' + height + '" sizes="(min-width: 1100px) 535px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"></div>';
+   
+            }
+          
+          });
+           
+          {% if product.metafields.custom.product_360_images != blank %}
+          addImage = '<div class="slider-for">' + addImage + ' <div class="item"><a class="Magic360" data-options="filename:{{product.handle}}_{col}.jpg;columns:50;spin:hover;"><img  src="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/{{product.handle}}_1.jpg?v=1715598373"  class="img-fluid" srcset="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/image_13.jpg?v=1715598373"     sizes="(min-width: 1100px) 535px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)" ></a> </div></div>';
+            {% else %}
+             addImage = '<div class="slider-for">' + addImage + ' </div>';
+         
+            {% endif %}
+          if (addImage) {
+            thumbnails.empty();
+            thumbnails.html(addImage);
+          }
+           {% if product.metafields.custom.product_360_images != blank %}
+          addImage1 = '<div class="slider-nav">' + addImage1 + ' <div class="item"><img  src="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/{{product.handle}}_1.jpg" alt="" class="img-fluid" srcset="https://cdn.shopify.com/s/files/1/0639/0805/3161/files/{{product.handle}}_1.jpg?v=1715598373"  sizes="(min-width: 1100px) 535px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)" ></div> </div>';
+           {% else %}
+             addImage1 = '<div class="slider-nav">' + addImage1 + ' </div>';
+           {% endif %}
+          if (addImage1) {
+            thumbnails1.empty();
+            thumbnails1.html(addImage1);
+          }
+     Magic360.start();
+  $(function() {
+            $('.slider-for').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
+          fade: true,
+          asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          asNavFor: '.slider-for',
+          dots: false,
+          centerMode: false,
+          focusOnSelect: true
+        });
+  });
+          
+          // $(window).trigger('resize');
+        }
+      }
+  if (variant) {
+    var form = jQuery('#' + selector.domIdPrefix).closest('form');
+    for (var i=0,length=variant.options.length; i<length; i++) {
+      var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+     console.log(radioButton.length);
+      if (radioButton.length) {
+        radioButton.get(0).checked = true;
+      }
+    }
+  }
+  // END SWATCHES
+      timber.productPage({
+        money_format: "{{ shop.money_format }}",
+        variant: variant,
+        selector: selector
+      });
+    };
+  
+    jQuery(function($) {
+      new Shopify.OptionSelectors('productSelect', {
+        product: {{ product | json }},
+        onVariantSelected: selectCallback,
+        enableHistoryState: true
+      });
+  
+      // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+      {% if product.options.size == 1 and product.options.first != 'Title' %}
+        $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+      {% endif %}
+  
+      // Hide selectors if we only have 1 variant and its title contains 'Default'.
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        $('.selector-wrapper').hide();
+      {% endif %}
+    });
+        jQuery(function() {
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
+  });
+      });
+  </script>
+  <script src="{{ 'timber.js' | asset_url }}" defer="defer"></script>
+</div>
+<!-- product tab section -->
+<section class="tab-sec container relative mt-10 md:mt-16 px-3 md:px-0 md:px-3">
+  <div class="mb-2">
+    <ul
+      class="product-tabul block lg:flex divide-y-2 lg:divide-y-0 divide-gray-500 lg:divide-x-2 lg:divide-black -mb-px text-sm font-medium text-center justify-center default-tab"
+      data-tabs-toggle="#default-tab-content"
+      role="tablist"
+    >
+      <li class="me-2 mb-5 lg:mb-0 lg:px-5 xxl:px-10 pt-5 lg:pt-0" role="presentation">
+        <div>
+          <button
+            class="button w-full flex "
+            id="profile-tab"
+            data-tabs-target="#profile"
+            type="button"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+          >
+            <p class="font-lato font-normal text-lg md:text-xl text-black uppercase tracking-[4px]">product details</p>
+            <svg
+              data-accordion-icon=""
+              class="absolute right-[22px] block text-black lg:hidden w-3 h-3 shrink-0"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" d="M9 5 5 1 1 5"></path>
+            </svg>
+          </button>
+          <div
+            class="tabcontent hidden duration-300 lg:absolute w-[100%] left-0 px-0 lg:px-4"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <div class="max-w-[1200px] mx-auto font-lato text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize">
+              <div
+                class="font-lato text-left text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize pt-4"
+              >
+                {{ product.description }}
+              </div>
+              <div class="block md:flex mt-2">
+                <div class="md:w-1/2 text-left">
+                  {% if product.metafields.custom.expected_shipping_timeline != blank %}
+                    <p class="font-lato text-intermediate ">
+                      <b class="capitalize">expected shipping timeline:</b>
+                      {{ product.metafields.custom.expected_shipping_timeline }}
+                    </p>
+                  {% endif %}
+                  {% if product.metafields.custom.precious_metal != blank %}
+                    <p class="font-lato text-intermediate mt-3">
+                      <b class="capitalize">precious metal:</b> {{ product.metafields.custom.precious_metal }}
+                    </p>
+                  {% endif %}
+                  {% if product.metafields.custom.product_tyle != blank %}
+                    <p class="font-lato text-intermediate mt-3">
+                      <b class="capitalize">product type:</b> {{ product.metafields.custom.product_tyle }}
+                    </p>
+                  {% endif %}
+                  {% if product.metafields.custom.approx_carat_total_weight != blank %}
+                    <p class="font-lato text-intermediate mt-3">
+                      <b class="capitalize">approx carat total weight</b>
+                      {{ product.metafields.custom.approx_carat_total_weight }}
+                    </p>
+                  {% endif %}
+                </div>
+                <div class="mt-3 md:mt-3 md:w-1/2 text-left">
+                  {% if product.metafields.custom.color_clarity != blank %}
+                    <p class="font-lato text-intermediate ">
+                      <b class="capitalize">color/clarity:</b> {{ product.metafields.custom.color_clarity }}
+                    </p>
+                  {% endif %}
+
+                  {{ section.settings.title }}
+                </div>
+              </div>
+            </div>
+
+            {% if product.metafields.custom.image_heading != blank %}
+              <div class="max-w-[850px] mx-auto mt-2">
+                <img src="{{ 'single-product-divider.png' | file_url }}" alt="divider" class="mx-auto">
+                <p
+                  class="text-center font-lato text-left text-intermediate leading-7 font-normal tracking-[1.8px] capitalize pt-0"
+                >
+                  {{ product.metafields.custom.image_heading }}
+                </p>
+                <img src="{{ 'single-product-divider.png' | file_url }}" alt="divider" class="mx-auto">
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+
+      <li class="me-2 lg:px-5 xxl:px-10 mb-5 lg:mb-0 pt-5 lg:pt-0" role="presentation">
+        <div>
+          <button
+            class="button flex"
+            id="dashboard-tab"
+            data-tabs-target="#dashboard"
+            type="button"
+            role="tab"
+            aria-controls="dashboard"
+            aria-selected="false"
+          >
+            <p class="font-lato font-normal text-lg md:text-xl text-black uppercase tracking-[4px]">
+              shipping & returns
+            </p>
+            <svg
+              data-accordion-icon=""
+              class="absolute right-[22px] block text-black lg:hidden w-3 h-3 shrink-0"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" d="M9 5 5 1 1 5"></path>
+            </svg>
+          </button>
+          <div
+            class="tabcontent hidden duration-300 rounded-lg lg:absolute w-[100%] left-0 px-0 lg:px-4"
+            id="dashboard"
+            role="tabpanel"
+            aria-labelledby="dashboard-tab"
+          >
+            <div class="max-w-[1200px] mx-auto font-lato text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize">
+              <!--
+                <p
+                  class="font-lato text-left text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize  pt-7"
+                >
+                  12lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book
+                </p>
+              -->
+              <div class="block md:flex mt-10">
+                <div class="md:w-1/2 text-left">
+                  <p class="font-lato text-intermediate ">
+                    <b class="capitalize">expected shipping timeline:</b> Made-To-Order (3-4 weeks)
+                  </p>
+                  <p class="font-lato text-intermediate mt-3">
+                    <b class="capitalize">precious metal:</b> 18k white gold
+                  </p>
+                  <p class="font-lato text-intermediate mt-3"><b class="capitalize">product style:</b> 1000000011</p>
+                  <p class="font-lato text-intermediate mt-3">
+                    <b class="capitalize">approx carat total weight</b> 0.5
+                  </p>
+                </div>
+                <div class="mt-3 md:mt-0 md:w-1/2 text-left">
+                  <p class="font-lato text-intermediate "><b class="capitalize">color/clarity:</b> F+VS1+</p>
+                  <p class="font-lato text-intermediate mt-3 capitalize">
+                    this item can be personalized with a complimentary engraving.
+                  </p>
+                  <p class="font-lato text-intermediate mt-3 capitalize">this item is eligible for resizing.</p>
+                  <p class="font-lato text-intermediate mt-3 capitalize">
+                    this item is eligible for 14-day returns or exchange.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="me-2 lg:px-5 xxl:px-10 mb-5 lg:mb-0 pt-5 lg:pt-0" role="presentation">
+        <div>
+          <button
+            class="button flex"
+            id="settings-tab"
+            data-tabs-target="#settings"
+            type="button"
+            role="tab"
+            aria-controls="settings"
+            aria-selected="false"
+          >
+            <p class="font-lato font-normal text-lg md:text-xl text-black uppercase tracking-[4px]">
+              material and quality
+            </p>
+            <svg
+              data-accordion-icon=""
+              class="absolute right-[22px] block text-black lg:hidden w-3 h-3 shrink-0"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" d="M9 5 5 1 1 5"></path>
+            </svg>
+          </button>
+
+          <div
+            class="tabcontent hidden duration-300 rounded-lg lg:absolute w-[100%] left-0 px-0 lg:px-4"
+            id="settings"
+            role="tabpanel"
+            aria-labelledby="settings-tab"
+          >
+            <div class="max-w-[1200px] mx-auto font-lato text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize">
+              <!--
+                <p
+                  class="font-lato text-left text-sm md:text-md font-normal leading-4 md:leading-6 tracking-[1.8px] capitalize  pt-7"
+                >
+                  orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                  scrambled it to make a type specimen book
+                </p>
+              -->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- images secton -->
+<section class="md:pt-10 xxl:pt-24 mb-2.5 mt-16 lg:mt-0">
+  <div class="block md:flex gap-4 container">
+    {% if section.settings.image1 != blank %}
+      <div class="md:w-1/2">
+        <img
+          src="{{ section.settings.image1 | img_url: 'master'}}"
+          alt=""
+          class="w-full h-full max-h-[660px] object-contain border-2 border-gray-200 rounded-[60px] overflow-hidden"
+          height=""
+          width=""
+        >
+      </div>
+    {% endif %}
+    {% if section.settings.image2 != blank %}
+      <div class="md:w-1/2 mt-2 md:mt-0">
+        <img
+          src="{{ section.settings.image2 | img_url: 'master'}}"
+          alt=""
+          class="w-full h-full max-h-[660px] object-contain border-2 border-gray-200 rounded-[60px] overflow-hidden"
+          height=""
+          width=""
+        >
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image 2"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Heading"
+    }
+  ]
+}
+{% endschema %}
+<!-- *****end****** -->
+<!-- SHOP OUR INSTAGRAM -->
+<!--
+  <section class="md:pt-10 xxl:pt-24 mb-2.5 mt-8 lg:mt-10">
+    <h2 class="font-lato font-normal text-lg md:text-xl xl:text-xxl text-center">SHOP OUR INSTAGRAM</h2>
+
+    <div class="overflow-x-auto">
+      <div class="flex items-center mt-2 md:mt-[70px] max-xl:min-w-[1280px]">
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-1.png' | file_url }}"
+            alt="big-diamond-rings"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-2.png' | file_url }}"
+            alt="diamond-hand-braclet"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-3.png' | file_url }}"
+            alt="colourful-bangles"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-4.png' | file_url }}"
+            alt="colourful-bangles"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-1.png' | file_url }}"
+            alt="colourful-bangles"
+            class="w-full h-full object-contain"
+          >
+        </div>
+        <div
+          class="w-1/6 max-xl:min-h-[200px] max-[1360px]:max-h-[200px] max-h-[210px] larger:max-h-[290px] overflow-hidden"
+        >
+          <img
+            src="{{ 'instagram-shop-item-2.png' | file_url }}"
+            alt="colourful-bangles"
+            class="w-full h-full object-contain"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+<!-- *****end****** -->

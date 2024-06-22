@@ -1,0 +1,82 @@
+
+    <!-- bigger indexing image -->
+    <section class="relative py-8 md:py-12 xxl:py-28 xxl:my-28">
+        <div class="container">
+          <div class="xl:flex items-center">
+            <div class="xl:w-1/2">
+              <div class="xxl:absolute top-0 bottom-0 left-0 xxl:w-[48%]">
+                <img src="{{ section.settings.image | img_url: 'master'}}" alt="bigger-out-index"
+                  class="w-full h-full object-cover object-left" height="" width="" />
+              </div>
+            </div>
+  
+            <div class="xl:w-1/2 xl:ml-[79px] max-md:mt-6 max-xl:mt-10">
+              <h2 class="font-lato font-normal text-lg md:text-xl text-black uppercase" data-aos="fade-up"
+                data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800">
+                 {{ section.settings.title }}
+              </h2>
+              <p class="font-lato text-sm md:text-md font-normal leading-6 md:leading-9 tracking-[1.8px] capitalize mt-4 md:mt-10 lg:mt-6 xxl:mt-[70px]"
+                data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="0" data-aos-duration="800">
+                {{ section.settings.subtitle }}
+              </p>
+  
+              <div class="text-start" data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="0"
+                data-aos-duration="800">
+                <a href="  {{ section.settings.buttonlink }}"
+                  class="font-lato text-xsm md:text-md font-normal tracking-[1.8px] text-white hover:text-black px-6 md:px-10 py-2 md:py-4 bg-black uppercase hover:bg-transparent border-black inline-block border-2 border-solid duration-300 rounded-md mt-4 md:mt-10 xl:mt-[70px]">  {{ section.settings.buttontext }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- *****end****** -->
+  
+        {% schema %}
+  {
+    "name": "Text with Image",
+     "settings": [
+        
+     {
+  
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+     {
+  
+        "type": "textarea",
+        "id": "title",
+        "label": "Heading"
+      },
+        {
+  
+        "type": "textarea",
+        "id": "subtitle",
+        "label": "Sub Heading"
+      },
+       {
+  
+        "type": "textarea",
+        "id": "buttontext",
+        "label": "Button Text"
+      },
+          {
+  
+        "type": "url",
+        "id": "buttonlink",
+        "label": "Button Link"
+      } 
+   
+        
+    
+      
+       
+    ],
+      
+     "presets": [
+      {
+        "name": "Text with Image"
+      }
+    ]
+  }
+  {% endschema %}

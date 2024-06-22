@@ -1,0 +1,178 @@
+<!-- Shop Diamonds by Shape -->
+<style>
+  .shop-by-shape .slick-prev:before,
+  .shop-by-shape .slick-next:before {
+    opacity: 0.75;
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  .shop-by-shape .slick-prev:before {
+    content: url(https://cdn.shopify.com/s/files/1/0639/0805/3161/files/left-arrow.svg?v=1717659877) !important;
+  }
+  .shop-by-shape .slick-next:before {
+    content: url(https://cdn.shopify.com/s/files/1/0639/0805/3161/files/right-arrow.svg?v=1717659877) !important;
+  }
+  .shop-by-shape .slick-next {
+    right: 44%;
+  }
+
+  .shop-by-shape .slick-prev {
+    left: 44%;
+  }
+
+  .shop-by-shape .slick-prev,
+  .shop-by-shape .slick-next {
+    top: 110%;
+  }
+  .slick-slide > div {
+    /* transform: scale(.5); */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media (min-width: 767px) {
+    .slick-slide {
+      transition: 2s;
+      scale: 0.95;
+    }
+    .slick-center {
+      scale: 1.8;
+      transition: 2s;
+    }
+  }
+
+  @media (min-width: 1320px) {
+    .shop-by-shape .slick-next {
+      right: 45%;
+    }
+
+    .shop-by-shape .slick-prev {
+      left: 45%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .shop-by-shape .slick-prev:before,
+    .shop-by-shape .slick-next:before {
+      font-size: 44px;
+    }
+
+    .shop-by-shape .slick-prev,
+    .shop-by-shape .slick-next {
+      top: 105%;
+    }
+
+    .shop-by-shape .slick-next {
+      right: 45%;
+    }
+
+    .shop-by-shape .slick-prev {
+      left: 45%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-container {
+      zoom: 60%;
+    }
+    .slick-slide img {
+      width: 100%;
+    }
+    .shop-by-shape .slick-prev,
+    .shop-by-shape .slick-next {
+      top: 100%;
+    }
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .shop-by-shape .slick-next {
+      right: 42%;
+    }
+
+    .shop-by-shape .slick-prev {
+      left: 37%;
+    }
+
+    .shop-by-shape .slick-prev,
+    .shop-by-shape .slick-next {
+      top: 90%;
+    }
+
+    .carousel-container .iphone-p {
+      font-size: 12px !important;
+      line-height: normal;
+    }
+  }
+</style>
+
+<section
+  class="closeup-animate shop-by-shape py-10 bg-white"
+>
+  <div class="container  border-black py-4 pb-10 md:pb-16 xxl:pb-16">
+    <h3 class="text-center font-lato font-normal text-[20px] md:text-xl capitalize leading-normal">
+      {{ section.settings.title }}
+    </h3>
+    <!-- shapes slider -->
+    <div class="carousel-container md:mt-4">
+      <div class="diamond-carousel pb-3">
+        {% for block in section.blocks %}
+          <div class="text-center py-20">
+            <a href=" {{ block.settings.link }}">
+              <img
+                src="{{ block.settings.image | img_url: 'master'}}"
+                alt="heart-shape-diamond"
+                class="md:min-w-[220px] md:max-w-[220px] object-contain m-auto"
+                height=""
+                width=""
+              >
+              <h4 class="font-lato text-sm font-normal text-black text-center uppercase mt-2 iphone-p">
+                {{ block.settings.title }}
+              </h4>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- *****end****** -->
+
+{% schema %}
+{
+  "name": "Diamond Section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Diamond Section"
+    }
+  ]
+}
+{% endschema %}

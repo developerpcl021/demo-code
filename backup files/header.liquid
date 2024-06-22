@@ -1,0 +1,807 @@
+<div id="Search" class="Search desk-search_wrap" aria-hidden="true">
+    <div class="Search__Inner   search-bar">
+      <div class="Search__SearchBar container  search-modal__form ">
+        <form action="{{ routes.search_url }}" name="GET" role="search" class="Search__Form">
+          <div class="field">
+            <input
+              type="search"
+              class="Search__Input Heading form-control"
+              name="q"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              aria-label="Search"
+              placeholder="Search"
+              autofocus
+            >
+            <input type="hidden" name="type" value="product">
+            <input type="hidden" name="options[prefix]" value="last">
+            <button
+              type="button"
+              class="modal__close-button modal__toggle-close icon search-i icon-close"
+              aria-hidden="true"
+              focusable="false"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              <!--
+                <img width=""
+                height="" loading="lazy" src="{{ 'Button_Schlieien.svg' | asset_url }}" width="24" height="24" class="img-fluid" alt="">
+              -->
+              <span>X</span>
+            </button>
+            <!--
+              <button class=" search__button"  ><img width=""
+              height="" loading="lazy" src="{{ 'search-close.svg' | asset_url }}" alt=""F></button>
+            -->
+            <!-- Search__Close Link Link--primary data-action="close-search" aria-label="Search" -->
+          </div>
+        </form>
+        <!--
+          <button type="button"  class="modal__close-button modal__toggle-close icon search-i icon-close" aria-hidden="true" focusable="false" aria-label="{{ 'accessibility.close' | t }}">
+                       <img width=""
+                                  height="" loading="lazy" src="//cdn.shopify.com/s/files/1/2149/6413/t/58/assets/search-close.svg?v=133453531280314895071679315070" class="img-fluid" alt="">
+          </button>
+        -->
+      </div>
+  
+      <div class="Search__Results" aria-hidden="true">
+        <div class="PageLayout PageLayout--breakLap">
+          <div class="PageLayout__Section"></div>
+          <div class="PageLayout__Section PageLayout__Section--secondary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- header and nav -->
+  <div class="tem-box"></div>
+  <nav class="fixed top-0 z-[99999] cap-nav">
+    <div class="h-[100px] lg:h-[100px] bg-white flex justify-between items-center border-b-[1px] border-gray-100 relative">
+      <div class="max-w-[1420px] px-3 sm:px-8 larger:px-0 mx-auto flex justify-between items-center w-full">
+        <div class="xl:hidden relative z-[999] cursor-pointer" id="openMenu">
+          <img
+            width=""
+            height=""
+            src="{{ 'menu-icon-dark.svg' | file_url }}"
+            alt="menu-icon-dark"
+            class="object-contain sm:w-[40px]"
+            height=""
+            width=""
+          >
+        </div>
+  
+        <ul class="flex items-center gap-x-3 sm:gap-x-10 hidden xl:flex">
+          <!--
+            <li class="hidden xl:block">
+              <form>
+                <div class="flex items-center flex-col relative z-40">
+                   <fieldset>
+                     <input id="draft" class="peer/draft hidden" type="checkbox" />
+                     <label for="draft" class="cursor-pointer">
+                        <img width=""
+                                  height="" src="{{ 'search-icon.svg' | file_url }}" alt="search-icon" class="object-contain" />
+                     </label>
+  
+                     <div class="hidden peer-checked/draft:block absolute left-full top-0 z-30 -translate-y-1/4 pl-4">
+                        <input required type="text" placeholder="Search Your Type" class="pl-4 focus:ring-0 focus:border-[#c3602d] border-2 w-72 font-lato font-light text-sm md:text-md text-gray-700 tracking-[1.8px] capitalize"/>
+                     </div>
+                   </fieldset>
+              </div>
+              </form>
+            </li>
+          -->
+  
+          <li class="hidden xl:block">
+            <form action="/search" method="get" class="input-group search-bar" role="search">
+              <div class="flex items-center flex-col">
+                <fieldset>
+                  <input id="draft" class="peer/draft hidden" type="checkbox">
+                  <label for="draft" class="cursor-pointer">
+                    <img
+                      width=""
+                      height=""
+                      src="{{ 'search-icon.svg' | file_url }}"
+                      alt="search-icon"
+                      class="object-contain"
+                    >
+                  </label>
+  
+                  <!-- search bar modal -->
+                  <div class="hidden peer-checked/draft:block absolute left-0 right-0 top-[152px] bg-white border-t border-gray-100">
+                    <div class="max-w-[1420px] py-14 mx-auto">
+                      <div class="flex justify-between items-end">
+                        <div class="relative w-[calc(100%-100px)]">
+                          <input
+                            required
+                            type="search"
+                            name="q"
+                            value="{{ search.terms | escape }}"
+                            placeholder="Search Your Type"
+                            class="
+                              p-4 focus:ring-0 focus:border-[#c3602d] border-b border-0 w-full
+                              font-lato font-light text-sm md:text-md text-gray-700 tracking-[1.8px] capitalize
+                            "
+                          >
+                          <input type="hidden" name="type" value="product">
+                          <button type="submit" class="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-2">
+                            <img
+                              width=""
+                              height=""
+                              src="{{ 'search-icon.svg' | file_url }}"
+                              alt="search-icon"
+                              class="object-contain"
+                            >
+                          </button>
+                        </div>
+  
+                        <label for="draft" class="cursor-pointer">
+                          <img
+                            width=""
+                            height=""
+                            src="{{ 'cross-icon.svg' | file_url }}"
+                            alt="cross-icon"
+                            class="object-contain w-[20px] sm:w-[30px] cursor-pointer"
+                          >
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </form>
+          </li>
+          <li class="hidden xl:block">
+            <a href="https://maps.app.goo.gl/ukW1Gzyf6QE2hEvy7" target="blank" class="flex items-center gap-2 group">
+              <img
+                width=""
+                height=""
+                src="{{ 'menu-location.svg' | file_url }}"
+                alt="location-icon-on-menu"
+                class="w-[20px] h-[25px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span class="block font-inter text-xsm md:text-sm font-normal text-black capitalize">visit us</span>
+            </a>
+          </li>
+          <li class="hidden xl:block">
+            <a href="tel:303-393-8881" class="flex items-center gap-2 group">
+              <img
+                width=""
+                height=""
+                src="{{ 'telephone.svg' | file_url }}"
+                alt="wishlist-icon-on-menu"
+                class="w-[24px] h-[30px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span
+                class="block font-inter text-xsm md:text-sm font-normal text-black"
+                >303-393-8881</span
+              >
+            </a>
+          </li>
+        </ul>
+  
+        <a href="/" class="group">
+          <img
+            width=""
+            height=""
+            src="{{ 'logo.svg' | file_url }}"
+            alt="miro-logo-in-hero-banner"
+            class="object-contain max-[310px]:w-[70px] w-[90px] sm:w-[120px] lg:w-[160px] group-hover:scale-[0.95] duration-100"
+          >
+        </a>
+  
+        <!--
+          <form action="@" class="w-1/3 relative hidden xl:block">
+            <input type="text" placeholder="Search...." required
+              class="w-full border-b-[1px] border-black border-0 focus:ring-0 focus:border-black text-sm md:text-md font-lato font-normal leading-normal tracking-[1.8px] relative z-20 bg-transparent" />
+            <button type="submit" class="absolute top-[50%] translate-y-[-50%] right-[6%] z-30">
+              <img width="" height="" src="{{ 'search-icon.svg' | file_url }}" alt="search-icon" class="object-contain" />
+            </button>
+          </form>
+        -->
+  
+        <ul class="flex items-center gap-x-3 sm:gap-x-10">
+          <li class="hidden xl:block">
+            <a href="/pages/book-appointment" class="flex items-center gap-2 group">
+              <img
+                width=""
+                height=""
+                src="{{ 'book-an-app.svg' | file_url }}"
+                alt="wishlist-icon-on-menu"
+                class="w-[24px] h-[30px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span
+                class="block font-inter text-xsm md:text-sm font-normal text-black hidden xl:block capitalize"
+                >Book an Appointment</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="/account" class="flex items-center flex-col group">
+              <img
+                width=""
+                height=""
+                src="{{ 'user-regular.svg' | file_url }}"
+                alt="pmenu-profile-icon-on-menu"
+                class="w-[20px] h-[20px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span
+                class="block font-inter text-sm md:text-md font-normal text-black mt-1 hidden xl:bl ock"
+                >Profile</span
+              >
+            </a>
+          </li>
+          <li class="hidden xl:block">
+            <a href="/pages/wishlist" class="flex items-center flex-col group">
+              <img
+                width=""
+                height=""
+                src="{{ 'menu-wishlist.svg' | file_url }}"
+                alt="wishlist-icon-on-menu"
+                class="w-[20px] h-[25px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span
+                class="block font-inter text-sm md:text-md font-normal text-black mt-1 hidden xl:bl ock"
+                >Wishlist</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;" class="flex cart-link items-center flex-col group">
+              <img
+                width=""
+                height=""
+                src="{{ 'menu-cart.svg' | file_url }}"
+                alt="cmenu-cart-icon-on-menu"
+                class="w-[20px] h-[25px] object-contain group-hover:translate-y-[-6px] duration-200"
+              >
+              <span class="block font-inter text-sm md:text-md font-normal text-black mt-1 hidden xl:bl ock">Cart</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!--
+      <form
+        action="/search"
+        method="get"
+        role="search"
+        class="input-group search-bar xl:hidden relative px-4 py-1 bg-white border-b-[1px] border-gray-100"
+      >
+        <input
+          type="text"
+          placeholder="Search...."
+          required
+          class="w-full h-[6 0px] focus:ring-0 border-0 text-sm md:text-md font-lato font-normal leading-normal tracking-[1.8px] relative z-20 bg-transparent"
+        >
+        <button type="submit" class="absolute top-[50%] translate-y-[-50%] right-[6%] z-30">
+          <img width=""
+                                  height="" src="{{ 'search-icon.svg' | file_url }}" alt="search-icon" class="object-contain">
+        </button>
+      </form>
+    -->
+    <form
+      action="/search"
+      method="get"
+      class="input-group search-bar xl:hidden relative px-3 bg-white border-b-[1px] border-gray-100"
+      role="search"
+    >
+      <div class="flex items-center flex-col">
+        <input
+          required
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Search Your Type"
+          class="
+            pl-2 py-4 pr-5 focus:ring-0 focus:border-[#c3602d] border-0 w-full
+            font-lato font-light text-sm md:text-md text-gray-700 tracking-[1.8px] capitalize
+          "
+        >
+        <input type="hidden" name="type" value="product">
+        <button type="submit" class="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-3">
+          <img
+            width=""
+            height=""
+            src="{{ 'search-icon.svg' | file_url }}"
+            alt="search-icon"
+            class="object-contain"
+          >
+        </button>
+      </div>
+    </form>
+    <div
+      class="
+        bg-white w-[100%] sm:max-[1199px]:w-[60%] max-[1199px]:overflow-hidden flex justify-between items-center absolute xl:relative
+        left-[-100%] xl:left-[50%] xl:translate-x-[-50%] top-0 z-[999999] duration-200 max-[1024px]:min-h-screen h-full min-[1024px]:max-[1024px]:min-h-[114vh] border-b border-gray-100
+      "
+      id="toggle-links"
+    >
+      <div
+        class="max-w-[1366px] px-4 sm:px-8 mx-auto w-full pt-8 xl:pt-0 max-[1199px]:min-h-screen h-full overflow-y-auto"
+      >
+        <div class="xl:hidden relative" id="closeMenu">
+          <div class="absolute right-[0px] inline-block cursor-pointer">
+            <img
+              width=""
+              height=""
+              src="{{ 'cross-icon.svg' | file_url }}"
+              alt="cross-icon"
+              class="object-contain w-[20px] sm:w-[30px]"
+            >
+          </div>
+        </div>
+  
+        <ul class="xl:grid grid-flow-col auto-cols-max gap-x-24 pt-10 xl:pt-0 overflow-y-hidden">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {% when 'style_1' %}
+                <li class="group py-2 sm:py-4 xl:flex items-center cursor-pointer megaclicker make-submenu-glad">
+                  <div class="flex justify-between max-[1199px]:border-b border-gray-400 block max-[1199px]:pb-4 max-[1199px]:pr-2">
+                    <a
+                      href="{{ block.settings.link }}"
+                      data-aos="fade-up"
+                      data-aos-easing="ease-in-back"
+                      data-aos-delay="50"
+                      data-aos-duration="1200"
+                      data-aos-offSet="0"
+                    >
+                      <span
+                        class="group-hover:text-[#bb5d1f] block font-inter text-sm md:text-md font-normal text-black max-[1199px]:mt-1"
+                      >
+                        {{- block.settings.title }}
+                      </span>
+                    </a>
+  
+                    <p class="font-bold font-lato text-[22px] xl:hidden leading-[1] intend-extend-context">+</p>
+                  </div>
+                  <!-- mega menu -->
+                  <div
+                    class="xl:absolute xl:top-[100%] w-full xl:left-0 xl:right-0 bg-white xl:opacity-0 mih-[0px] hidden xl:block xl:group-hover:block xl:invisible group-hover:border-t border-black xl:group-hover:opacity-100 xl:group-hover:visible z-[9999] duration-200 cursor-default showmegas"
+                  >
+                    <div class="max-w-[1366px] mx-auto xl:flex">
+                      <div class="xl:w-1/3 xl:pr-4 py-2 md:py-10">
+                        <h4 class="font-lato font-bold text-sm md:text-md text-slate-700 uppercase">
+                          {{ block.settings.heading1 }}
+                        </h4>
+                        <ul class="mt-5 grid grid-cols-1 items-start gap-x-2 md:gap-x-4 make-column-2">
+                          {% for link in linklists[block.settings.linklist1].links %}
+                            {% assign image_url = block.settings.heading1
+                              | handle
+                              | append: '-'
+                              | append: link.title
+                              | handle
+                              | append: '.svg'
+                            %}
+                            <li class="group {% if forloop.index == 1 or  forloop.index == 3 or forloop.index == 5 or forloop.index == 7%}{% endif %}">
+                              <a
+                                href="{{ link.url }}"
+                                class="font-inter text-sm md:text-md font-normal text-black text-gray-700 hover:text-[#bb5d1f] flex items-center capitalize"
+                              >
+                                <img
+                                  src="{{ image_url | file_url }}"
+                                  alt="wedding-ring-1"
+                                  class="w-[38px] md:w-[46px] object-contain inline-block mr-1 md:mr-2"
+                                  width=""
+                                  height=""
+                                >
+                                {{ link.title }}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                        <h4 class="font-lato font-bold text-sm md:text-md text-slate-700 uppercase mt-4 md:mt-10">
+                          {{ block.settings.colheading2 }}
+                        </h4>
+                        <ul class="mt-5 grid grid-cols-1 gap-2 md:gap-4 items-start make-column-2">
+                          {% for link in linklists[block.settings.collinklist2].links %}
+                            {% assign image_url = block.settings.colheading2
+                              | handle
+                              | append: '-'
+                              | append: link.title
+                              | handle
+                              | append: '.svg'
+                            %}
+                            <li class="group {% if forloop.index == 1 or  forloop.index == 3 or forloop.index == 5 or forloop.index == 7%}{% endif %}">
+                              <a
+                                href="{{ link.url }}"
+                                class="font-inter text-sm md:text-md font-normal text-black text-gray-700 hover:text-[#bb5d1f] flex items-center capitalize"
+                              >
+                                <img
+                                  width=""
+                                  height=""
+                                  src="{{ image_url | file_url }}"
+                                  alt="wedding-ring-1"
+                                  class="w-[38px] md:w-[46px] object-contain inline-block mr-1 md:mr-2"
+                                >
+                                {{ link.title }}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+  
+                      <div class="xl:w-1/2 xl:pr-4 xl:border-l border-black xl:pl-[5%] py-2 md:py-10">
+                        <!-- for mens -->
+                        <h4 class="font-lato font-bold text-sm md:text-md text-slate-700 uppercase">
+                          {{ block.settings.heading2 }}
+                        </h4>
+                        <ul class="mt-5 grid grid-cols-2 lg:grid-cols-3 items-start gap-2 md:gap-4 grid-category">
+                          {% for link in linklists[block.settings.linklist2].links %}
+                            {% assign image_url = block.settings.heading2
+                              | handle
+                              | append: '-'
+                              | append: link.title
+                              | handle
+                              | append: '.svg'
+                            %}
+  
+                            <li class="group {% if forloop.index == 1 or  forloop.index == 3 or forloop.index == 5 or forloop.index == 7%}{% endif %}">
+                              <a
+                                href="{{ link.url }}"
+                                class="font-inter text-sm md:text-md font-normal text-black text-gray-700 hover:text-[#bb5d1f] flex items-center capitalize"
+                              >
+                                <img
+                                  width=""
+                                  height=""
+                                  src="{{ image_url | file_url }}"
+                                  alt="wedding-ring-1"
+                                  class="w-[38px] md:w-[46px] object-contain inline-block mr-1 md:mr-2"
+                                >
+                                {{ link.title }}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+  
+                        {% if block.settings.buttontext != blank %}
+                          <a
+                            href="{{ block.settings.buttonlink }}"
+                            class="font-inter text-sm md:text-md font-normal text-black text-gray-700 hover:text-[#bb5d1f] mt-6 inline-block 11"
+                          >
+                            {{ block.settings.buttontext }}
+                          </a>
+                        {% endif %}
+                      </div>
+  
+                      <!-- COMMENT BY 26-02-2024 -->
+                      <!--
+                        <div class="xl:w-1/4 mt-4 xl:mt-0 xl:border-l pb-1 xl:border-light xl:px-3">
+                          <h4 class="font-lato font-bold text-sm md:text-md text-slate-700 uppercase xl:ml-6 mt-6 xl:mt-0">
+                             {{ block.settings.heading2a }}
+                          </h4>
+  
+                          <div class="flex flex-wrap gap-4 mt-5">
+                        {% if block.settings.image1 != blank %}
+                            <a href="{{ block.settings.imagelink1 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image1 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image2 != blank %}
+                            <a href="{{ block.settings.imagelink2 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image2 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image3 != blank %}
+                            <a href="{{ block.settings.imagelink3 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image3 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image4 != blank %}
+                            <a href="{{ block.settings.imagelink4 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image4 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image5 != blank %}
+                            <a href="{{ block.settings.imagelink5 }}" class="hover:opacity-75 duration-75 col-span-2">
+                              <img width=""
+                                  height="" src="{{ block.settings.image5 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image6 != blank %}
+                            <a href="{{ block.settings.imagelink6 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image6 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+                         {% if block.settings.image7 != blank %}
+                            <a href="{{ block.settings.imagelink7 }}" class="hover:opacity-75 duration-75">
+                              <img width=""
+                                  height="" src="{{ block.settings.image7 | img_url: 'master'}}" alt="verragio" class="w-auto max-w-full object-contain" />
+                            </a>
+                          {% endif %}
+  
+                          </div>
+                        </div>
+                      -->
+  
+                      <!--
+                        <div class="xl:w-2/4 xl:border-l pb-1 border-light xl:pl-6">
+                          <h4 class="font-lato font-bold text-sm md:text-md text-slate-700 uppercase mt-6 xl:mt-0">
+                            {{ block.settings.heading3 }}
+                          </h4>
+  
+                          <div class="xl:flex items-start justify-between gap-1 mt-4">
+                            <div>
+                         {% for link in linklists[block.settings.linklist3].links %}
+  
+                             <a href="{{ link.url }}"
+                                class="flex items-start font-inter text-xsm md:text-sm font-normal text-black">
+                                <span
+                                  class="w-[14px] h-[14px] mt-1 border-4 border-red-400 rounded-full inline-block mr-2 bg-white"></span>
+                                {{ link.title }}
+                              </a>
+                          {% endfor %}
+  
+                            </div>
+  
+                              <div class="max-xl:mt-4">
+                                <img width=""
+                                  height="" src="{{ block.settings.image_right | img_url: 'master'}}" alt="nav-white-ring"
+                                class="w-[480px] object-contain hover:scale-[1.05] duration-75" />
+                              </div>
+                          </div>
+                        </div>
+                      -->
+                      <!-- COMMENT BY 26-02-2024 -->
+                    </div>
+                  </div>
+                </li>
+              {% when 'style_4' %}
+                <li class="group py-2 sm:py-4 xl:flex items-center cursor-pointer nth-last-second-child">
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="xl:flex items-center flex-col max-[1199px]:border-b border-gray-400 block max-[1199px]:pb-4"
+                    data-aos="fade-up"
+                    data-aos-easing="ease-in-back"
+                    data-aos-delay="50"
+                    data-aos-duration="1200"
+                    data-aos-offSet="0"
+                  >
+                    <span
+                      class="group-hover:text-[#bb5d1f] group-focus:text-[#bb5d1f] block font-inter text-sm md:text-md font-normal text-black max-[1199px]:mt-1"
+                    >
+                      {{- block.settings.title }}
+                    </span>
+                  </a>
+                </li>
+            {% endcase %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  {% schema %}
+    {
+      "name": "Header",
+        "settings": [
+  
+           {
+  
+        "type": "richtext",
+        "id": "title",
+        "label": "Annoucment Bar Text"
+      }
+  
+  
+    ],
+       "blocks": [
+  
+      {
+        "type": "style_1",
+        "name": "Megamenu Style 1",
+  
+        "settings": [
+  
+          {
+            "type": "header",
+            "content": "Link"
+          },
+  {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+          },
+     {
+            "type": "header",
+            "content": "Column 1"
+          },
+  
+  {
+            "type": "text",
+            "id": "heading1",
+            "label": "Title 1"
+          },
+  
+   {
+            "type": "link_list",
+            "id": "linklist1",
+            "label": "Select Menu 1"
+          } ,
+    {
+            "type": "text",
+            "id": "colheading2",
+            "label": "Title 2"
+          },
+   {
+            "type": "link_list",
+            "id": "collinklist2",
+            "label": "Select Menu 2"
+          } ,
+          {
+            "type": "header",
+            "content": "Column 2"
+          },
+  {
+            "type": "text",
+            "id": "heading2",
+            "label": "Title 1"
+          },
+  
+   {
+            "type": "link_list",
+            "id": "linklist2",
+            "label": "Select Menu 2"
+          } ,
+           {
+            "type": "header",
+            "content": "View All Button"
+          },
+          {
+            "type": "text",
+            "id": "buttontext",
+            "label": "Button text"
+          },
+  
+          {
+            "type": "url",
+            "id": "buttonlink",
+            "label": "Button link"
+          },
+            {
+            "type": "header",
+            "content": "Column 2"
+          },
+          {
+            "type": "text",
+            "id": "heading2a",
+            "label": "Title 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "logo Image 1"
+          },
+          {
+            "type": "url",
+            "id": "imagelink1",
+            "label": "Image link 1"
+          },
+            {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "logo Image 2"
+          },
+          {
+            "type": "url",
+            "id": "imagelink2",
+            "label": "Image link 2"
+          },
+            {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "logo Image 3"
+          },
+          {
+            "type": "url",
+            "id": "imagelink3",
+            "label": "Image link 3"
+          },
+            {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "logo Image 4"
+          },
+          {
+            "type": "url",
+            "id": "imagelink4",
+            "label": "Image link 4"
+          },
+            {
+            "type": "image_picker",
+            "id": "image5",
+            "label": "logo Image 5"
+          },
+          {
+            "type": "url",
+            "id": "imagelink5",
+            "label": "Image link 5"
+          },
+            {
+            "type": "image_picker",
+            "id": "image6",
+            "label": "logo Image 6"
+          },
+          {
+            "type": "url",
+            "id": "imagelink6",
+            "label": "Image link 6"
+          },
+           {
+            "type": "image_picker",
+            "id": "image7",
+            "label": "logo Image 7"
+          },
+          {
+            "type": "url",
+            "id": "imagelink7",
+            "label": "Image link 7"
+          },
+          {
+            "type": "header",
+            "content": "Column 3"
+          },
+  
+          {
+            "type": "text",
+            "id": "heading3",
+            "label": "Title 3"
+          },
+  
+   {
+            "type": "link_list",
+            "id": "linklist3",
+            "label": "Select Menu 3"
+          } ,
+  
+   {
+            "type": "image_picker",
+            "id": "image_right",
+            "label": "Right side Image"
+          }
+        ]
+      },
+  
+           {
+        "type": "style_4",
+        "name": "Megamenu Style 4 Normal",
+  
+        "settings": [
+  
+          {
+            "type": "header",
+            "content": "Link"
+          },
+  {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+  {
+  "type": "url",
+  "id": "link",
+  "label": "Link"
+  }
+  
+        ]
+      }
+  
+  
+  
+  
+  
+  
+    ]
+    }
+  {% endschema %}
+  
